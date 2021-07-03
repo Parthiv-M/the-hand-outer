@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initialscale=1.0">
+        {{!-- import google font for non-gmail providers --}}
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+        </style>
+    </head>
+    <body>
+        <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
+            <td align="center" border="0" bgcolor="white">
+                <img src="https://live.staticflickr.com/65535/51285253389_3c26b59ae7_n.jpg"/>
+                <p style="text-align: center; font-size: 16px; color: #4B5563">
+                    {{!-- render a random greeting every time --}}
+                    {{ greeting }}
+                </p>
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
+                    <td align="center" bgcolor="white" border="0">
+                        <ul style="list-style-type:none;" id="news-list">
+                            <div class="news-card" style="margin: 20px 0px; width: 600px;">
+                                {{!-- render the news articles here --}}
+                                {{#each news}}
+                                    <img src={{highlightPhoto}} style="width: 600px;"/>
+                                    <div style="margin: 10px 0px; color: grey; font-size: 20px; text-align: left; font-family: Roboto, sans-serif; font-weight: 200;">
+                                        {{date}}
+                                    </div>
+                                    <div style="font-family: Roboto, sans-serif; color: #121212; font-size: 26px; text-align: left; font-weight: 600;">
+                                        {{newsHeading}}
+                                    </div>
+                                    <div style="margin-top: 5px; margin-bottom: 15px; text-align: left;">
+                                        <a href={{link}} target="_blank" style="font-size: 20px; font-family: Roboto, sans-serif; text-decoration: none; color: #10B981;">Read more</a>
+                                    </div>
+                                {{/each}}
+                            </div>
+                        </ul>
+                        <img src="https://live.staticflickr.com/65535/51285573034_4366761e01_n.jpg" style="width: 100px;"/>
+                        <p style="text-align: center; margin-top: 15px; margin-bottom: 5px; font-size: 15px; width: 600px">Read more from CyberManipal below</p>
+                        <div style="display: flex; height: 50px; padding: 5px; background-color: #121212; flex-direction: row wrap; width: 600px; justify-content: center; align-items: center; text-align: center">
+                            <a href="https://wearemist.in/news/category/vulnerabilities/1" target="_blank" style="padding-top: 15px; margin-left: 100px; font-size: 16px; font-family: Roboto, sans-serif; text-decoration: none; color: #10B981; margin-right: 5px">Vulnerabilities</a> <span style="color: white; padding-top: 15px;">|</span>
+                            <a href="https://wearemist.in/news/category/researchanddevelopment/1" target="_blank" style="padding-top: 15px; font-size: 16px; font-family: Roboto, sans-serif; text-decoration: none; color: #10B981; margin: 0px 5px">Research</a> <span style="color: white; padding-top: 15px;">|</span>
+                            <a href="https://wearemist.in/news/category/breaches/1" target="_blank" style="padding-top: 15px; font-size: 16px; font-family: Roboto, sans-serif; text-decoration: none; color: #10B981; margin: 0px 5px">Breaches</a> <span style="color: white; padding-top: 15px;">|</span>
+                            <a href="https://wearemist.in/news/category/policiesandregulations/1" target="_blank" style="padding-top: 15px; font-size: 16px; font-family: Roboto, sans-serif; text-decoration: none; color: #10B981; margin: 0px 5px">Policies</a> <span style="color: white; padding-top: 15px;">|</span>
+                            <a href="https://wearemist.in/news/category/fraudsandscams/1" target="_blank" style="padding-top: 15px; font-size: 16px; font-family: Roboto, sans-serif; text-decoration: none; color: #10B981; margin: 0px 5px">Frauds</a>
+                        </div>
+                    </td>
+                </table> 
+            </td>
+        </table>
+    </body>
+</html>
