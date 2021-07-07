@@ -1,0 +1,13 @@
+name: newsletter-cron
+on:
+  schedule:
+    - cron: '0 9 * * 4'
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Calls the hand-outer route
+        run: |
+          curl --request POST \
+          --url 'https://the-hand-outer.vercel.app/' \
+          --header 'auth_key: ${{ secrets.AUTH_KEY }}'

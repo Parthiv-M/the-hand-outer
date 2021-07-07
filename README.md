@@ -1,6 +1,8 @@
 # The Hand-Outer
 
-A _hand-outer_ application that does what it claims—hand out newsletters in this case. This hand-outer doles out a copy of the newsletter to every subscriber's email address (which is fetched from the database via an API) every week, scheduled by [node-cron](https://www.npmjs.com/package/node-cron) and powered by [nodemailer](https://www.npmjs.com/package/nodemailer). If you want a peek, take a look [here](https://the-hand-outer.vercel.app/) 
+A _hand-outer_ application that does what it claims—hand out newsletters in this case. This hand-outer doles out a copy of the newsletter to every subscriber's email address (which is fetched from the database via an API) every week, powered by [nodemailer](https://www.npmjs.com/package/nodemailer). If you want a peek, take a look [here](https://the-hand-outer.vercel.app/).
+
+Initially, I had built this to be scheduled by [node-cron](https://www.npmjs.com/package/node-cron). But, since I opted to host on Vercel, I shifted the scheduling to a [GitHub actions](https://docs.github.com/en/actions/learn-github-actions) cron job. Both work equally well.
 
 ## A general use-case
 
