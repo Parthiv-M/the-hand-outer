@@ -1,12 +1,22 @@
 # The Hand-Outer
 
-A _hand-outer_ application that does what it claims—hand out newsletters in this case. This hand-outer doles out a copy of the newsletter to every subscriber's email address (which is fetched from the database via an API) every week, powered by [nodemailer](https://www.npmjs.com/package/nodemailer). If you want a peek, take a look [here](https://the-hand-outer.vercel.app/).
+A _hand-outer_ application that does what it claims—hand out newsletters in this case. This hand-outer doles out a copy of the newsletter to every subscriber's email address (which is fetched from the database via an API) every week, powered by [nodemailer](https://www.npmjs.com/package/nodemailer). If you want a peek, take a look [here](https://the-hand-outer.herokuapp.com/).
 
-Initially, I had built this to be scheduled by [node-cron](https://www.npmjs.com/package/node-cron). But, since I opted to host on Vercel, I shifted the scheduling to a [GitHub actions](https://docs.github.com/en/actions/learn-github-actions) cron job. Both work equally well.
+## The Trials
+
+Initially, I had built this to be scheduled by [node-cron](https://www.npmjs.com/package/node-cron). Then came the deployment part and I was forced to reconsider my options. Here is what followed.
+
+1. Vercel is mainly intended for deploying serverless functions. Even though I deployed my express app on vercel with a `vercel.json` configuration file, the scheduled task will not be performed as Vercel does not have a running server. So, that possibility was ruled out, even though there was an option of hitting the serverless function with a [GitHub actions](https://docs.github.com/en/actions/learn-github-actions) cron job.
+
+2. The second thing that went against Vercel was the fact that it blocked SMTP connections, even thuogh the documentation [says otherwise](https://vercel.com/support/articles/serverless-functions-and-smtp), and did not allow nodemailer to send emails. I did not want to use any third party services (like SendGrid) yet.
+
+3. I then thought I could run the express app with node-cron on Heroku, but Heroku has a problem with the app _dozing_ off once it stops receiving hits. Hence, that got ruled out too.
+
+In the end, I created a `POST` route with an authentication header which then goes on to send out the emails. It can be called with a simple `CURL` request like `curl --request POST --url 'https://the-hand-outer.herokuapp.com/' --header 'auth_key: AUTH_KEY'`.
 
 ## A general use-case
 
-This project can be used in a general scenario as well. Instead of being limited to just sending e-mails, it can be configured to repeat menial tasks automatically at specified intervals of time. Replacing parts of the code with your own to-be-repeated operation will do the trick. In this specific case, I have leveraged [express](https://expressjs.com/) to make use of a few of its functionalities. But even that can be avoided, if required, since a normal script involving node-cron can also be used in several other specific use-cases.
+This project can be used in a general scenario as well. Instead of being limited to just sending e-mails, it can be configured to repeat menial tasks with just a POST request. Replacing parts of the code with your own to-be-repeated operation will do the trick. In this specific case, I have leveraged [express](https://expressjs.com/) to make use of a few of its functionalities.
 
 ## Points to note for HTML in email
 
