@@ -6,8 +6,9 @@ jobs:
   cron:
     runs-on: ubuntu-latest
     steps:
+      - shell: bash
+        env: 
+          AUTH_KEY: ${{ secrets.AUTH_KEY }} 
       - name: Calls the hand-outer route
         run: |
-          curl --request POST \
-          --url 'https://the-hand-outer.herokuapp.com' \
-          --header 'auth_key: ${{ secrets.AUTH_KEY }}'
+          curl --request POST --url 'https://the-hand-outer.herokuapp.com' --header 'auth_key: $AUTH_KEY'
