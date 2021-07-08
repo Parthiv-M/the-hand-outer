@@ -2,7 +2,7 @@ name: newsletter-workflow
 
 on:
   schedule:
-  - cron: "16 * * * *"
+  - cron: "55 * * * *"
 
 jobs:
   # This workflow contains a single job called "build"
@@ -10,11 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Calls the hand-outer route
     steps:
-      - name: Curl request
-        shell: bash
-        env: 
-          AUTH_KEY: ${{ secrets.AUTH_KEY }}
-        run: | 
-          curl --request POST \
-          --url 'https://the-hand-outer.herokuapp.com' \
-          --header 'auth_key: $"AUTH_KEY"'
+      - uses: actions/checkout@v2
+        with:
+          auth_key: ${{ secrets.AUTH_KEY }}
+      - name: Curl
+        run: |
+          curl --request POST --url 'https://the-hand-outer.herokuapp.com' --header 'auth_key: $"auth_key"'
+      
