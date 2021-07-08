@@ -14,4 +14,7 @@ jobs:
         env: 
           AUTH_KEY: ${{ secrets.AUTH_KEY }}
       - name: Curl request
-        run: curl --request POST --url 'https://the-hand-outer.herokuapp.com' --header 'auth_key: $"AUTH_KEY"'
+        run: | 
+          curl --request POST \
+          --url 'https://the-hand-outer.herokuapp.com' \
+          --header 'auth_key: $"AUTH_KEY"'
