@@ -36,7 +36,7 @@ const greetingList = [
 ]
 
 // schedule the cron to hand out newsletters every thursday
-cron.schedule('59 * * * *', async () => {
+cron.schedule('5 * * * *', async () => {
     try {
         // fetch the latest news to be hadned out
         const resNews = await axios.get(`${serverUrl}/api/news?page=0`);
