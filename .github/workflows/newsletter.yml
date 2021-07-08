@@ -9,5 +9,5 @@ jobs:
       - name: Calls the hand-outer route
         run: |
           curl --request POST \
-          --url 'https://the-hand-outer.vercel.app/' \
+          --url 'https://the-hand-outer.herokuapp.com' \
           --header 'auth_key: ${{ secrets.AUTH_KEY }}'

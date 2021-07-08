@@ -114,6 +114,7 @@ app.post("/", async(req, res) => {
             });
     
             console.log('Emails for ' + new Date().toISOString().slice(0, 10) + ' sent successfully');
+            res.status(200).send({ message: "Emails sent" });
         } catch (e) {
             console.log(e);
         }
