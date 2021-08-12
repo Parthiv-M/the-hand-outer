@@ -11,23 +11,28 @@
     <body>
         <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
             <td align="center" border="0" bgcolor="white">
-                <img src="https://live.staticflickr.com/65535/51285253389_3c26b59ae7_n.jpg"/>
+                <img src="https://drive.google.com/uc?export=view&id=12NknjhcDgoVf8OZOef9WHxC_JRuBWuPd"/>
                 <p style="text-align: center; font-size: 16px; color: #4B5563">
                     {{!-- render a random greeting every time --}}
                     {{ greeting }}
                 </p>
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
                     <td align="center" bgcolor="white" border="0">
-                        <ul style="list-style-type:none;" id="news-list">
-                            <div class="news-card" style="margin: 20px 0px; width: 600px;">
+                        <ul style="list-style-type: none;">
+                            <div class="news-card" style="margin: 20px auto; width: 600px;">
                                 {{!-- render the news articles here --}}
                                 {{#each news}}
-                                    <img src={{highlightPhoto}} style="width: 600px;"/>
+                                    <a style="text-decoration: none; width: 600px" href={{link}} target="_blank">
+                                        <img src={{highlightPhoto}} style="width: 600px;"/>
+                                    </a>
                                     <div style="margin: 10px 0px; color: grey; font-size: 20px; text-align: left; font-family: Roboto, sans-serif; font-weight: 200;">
                                         {{date}}
                                     </div>
-                                    <div style="font-family: Roboto, sans-serif; color: #121212; font-size: 26px; text-align: left; font-weight: 600;">
-                                        {{newsHeading}}
+                                    <div style="font-family: Roboto, sans-serif; font-size: 26px; text-align: left; font-weight: 800;">
+                                        <a style="text-decoration: none; width: 600px; color: #121212;" href={{link}} target="_blank">{{newsHeading}}</a>
+                                    </div>
+                                    <div style="font-family: Roboto, sans-serif; color: gray; font-size: 18px; text-align: left; font-weight: 200;">
+                                        {{snippet}}...
                                     </div>
                                     <div style="margin-top: 5px; margin-bottom: 15px; text-align: left;">
                                         <a href={{link}} target="_blank" style="font-size: 20px; font-family: Roboto, sans-serif; text-decoration: none; color: #10B981;">Read more</a>

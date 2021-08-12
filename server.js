@@ -1,5 +1,4 @@
 const express = require('express');
-const cron = require('node-cron');
 const nodemailer = require('nodemailer');
 const axios = require('axios');
 const hbs = require('nodemailer-express-handlebars');
@@ -53,6 +52,7 @@ app.post("/", async(req, res) => {
                 news.link = `https://wearemist.in/news/article/${news._id}`
                 let tempDate = new Date(news.date);
                 news.date = tempDate.toDateString();
+                news.snippet = news.description.split(" ").slice(0, 70).join(" ");
             })
             
             // fetch the subscribers
