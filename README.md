@@ -41,6 +41,6 @@ I stumbled quite a bit while setting this up for myself, and want to note down a
   - Special note: Gmail **does not** render your custom font faces. 
 - The standard width if you are looking for impressive looking HTML in email is `600px`. It scales well on mobile devices as well.
   - It should be mentioned as `width="600"` and not `width="600px"` 
-- Another issue I faced was sending mails to Outlook. Outlook only accepts `text` emails—meaning your `html` templates will not be accepted.
+- Another issue I faced was sending mails to Outlook. Outlook (generally) only accepts `text` emails—meaning your `html` templates will not be accepted, or will be blocked by Outlook by default. The client needs to manually allow the email to show images and other content.
 
 Generally, it is challenging to figure out the perfect styling for your HTML in emails. But, a bit of searching and experimenting can get you the look you require.
