@@ -49,7 +49,7 @@ app.post("/", async(req, res) => {
     
             // format the date field and the link field
             latestFive.forEach(news => {
-                news.link = `https://cybermanipal.wearemist.in/news/article/${news._id}`
+                news.link = `https://cybermanipal.wearemist.in/article/${news._id}`
                 let tempDate = new Date(news.date);
                 news.date = tempDate.toDateString();
                 news.snippet = news.description.split(" ").slice(0, 70).join(" ");
